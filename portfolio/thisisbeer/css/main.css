@@ -10,14 +10,14 @@
   height: 100vh;
   width: 100vw;
   max-width: 768px;
-  
+
   overflow: hidden;
 }
 /*375*/
 .game-name {
   font-style: italic;
   font-weight: 900;
-  font-size: 25.6vw;
+  font-size: 20.6vw;
   line-height: 1;
   color: #F941DB;
   margin: 0;
@@ -132,8 +132,8 @@
 }
 
 .quest_img {
-  padding-top: 17vw;
-  padding-bottom: 17vw;
+  padding-top: 12vw;
+  padding-bottom: 12vw;
   text-align: center;
 
 
