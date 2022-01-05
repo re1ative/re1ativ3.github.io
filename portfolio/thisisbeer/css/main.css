@@ -52,7 +52,7 @@
 }
 
 .game-message {
-  margin: 124px 5px 14px 9px;
+  margin: 24vh 5px 14px 9px;
   color: #ffffff;
   font-style: italic;
   font-weight: 500;
@@ -255,6 +255,9 @@ h2.game-quest {
 
   .game-buttons .btn {
     margin-top: 36px;
+  }
+  .game-message {
+    margin-top: 160px;
   }
 }
 
