@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>ЭТО ПИВО.</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+  <div id="app">
+    <div id="game-start" v-if="!gameActive">
+      <h1 class="game-name">Это<br>Пиво.</h1>
+      <h2 class="game-message">сколько раундов?</h2>
+      <form class="settings">
+        <div class="settings__minus">
+          <img @click="change(-1)" src="img/minus.svg" alt="">
+        </div>
+        <div class="settings__count">
+          <input type="number" :value="rounds" disabled>
+        </div>
+        <div class="settings__plus">
+          <img @click="change(1)" src="img/plus.svg" alt="">
+        </div>
+      </form>
+      <div class="btn btn--start">
+        <button id="start" @click="start(rounds)">OK, LET'S GO...</button>
+      </div>
+    </div>
+    <div id="game" v-if="gameActive & !gameDone">
+      <div class="game__logo">Это<br>Пиво.</div>
+      <div class="quest_img" >
+        <img v-bind:src="quest.img" alt="" v-bind:style="{ filter: 'blur('+blur+'px)' }">
+      </div>
+      <h2 class="game-quest">{{quest.question}}</h2>
+      <div class="game-buttons">
+
+        <div class="btn" v-for="(answer, index) in quest.answers">
+          <button @click="doanswer(index)" >{{answer}}</button>
+        </div>
+      </div>
+    </div>
+    <div id="end" v-if="gameDone">
+      <h1 class="game-name">WIN</h1>
+      <h2 class="win-message">{{winmsg}}</h2>
+      <h2 class="game-message">Ты угадал бутылок:</h2>
+      <div class="successful">
+        <div class="successful__round">
+          <span>{{stats}}</span>
+        </div>
+
+      </div>
+      <div class="btn btn--start">
+        <button @click="restart()">ЗАНОВО</button>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
