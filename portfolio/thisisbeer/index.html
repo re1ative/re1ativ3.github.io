@@ -34,7 +34,7 @@
           <img @click="change(-1)" src="img/minus.svg" alt="">
         </div>
         <div class="settings__count">
-          <input type="number" :value="rounds" disabled>
+          <input type="number" :value="rounds" max="{{rounds}}">
         </div>
         <div class="settings__plus">
           <img @click="change(1)" src="img/plus.svg" alt="">
