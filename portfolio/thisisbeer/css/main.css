@@ -33,6 +33,7 @@
 .settings {
   display: flex;
   justify-content: center;
+  opacity: 0;
 }
 
 .settings__count input {
@@ -51,7 +52,7 @@
 }
 
 .game-message {
-  margin: 124px 5px 14px 9px;
+  margin: 150px 5px 14px 9px;
   color: #ffffff;
   font-style: italic;
   font-weight: 500;

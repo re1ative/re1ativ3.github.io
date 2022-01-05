@@ -50,30 +50,14 @@ var quests = [
 
 ];
 
-function getRandomQuests(value) {
+function getQuests(value) {
 
-  var result = new Array(value),
-    len = quests.length,
-    taken = new Array(len);
-  if (value > len) // сравниваем необходимое количество, с тем что доступно
-    throw new RangeError("Элементов больше чем может быть доступно");
-  while (value--) {
-    var x = Math.floor(Math.random() * len);
+  var result = [];
+  while(value--) {
 
-
-    if (x in taken) {
-
-      //result[value] = quests[x in taken ? taken[x] : x];
-      result[value] = quests[taken[x]];
-
-    }
-    else {
-      result[value] = quests[x];
-
-    }
-    taken[x] = --len in taken ? taken[len] : len;
-
+    result[value] = this.quests[value];
   }
+  console.log(result);
   return result;
 
 }
@@ -84,7 +68,7 @@ function getRandomQuests(value) {
 let app = new Vue({
   el: '#app',
   data: {
-    rounds: 1,
+    rounds: 8,
     quests: null,
     gameActive: false,
     gameDone: false,
@@ -108,7 +92,7 @@ let app = new Vue({
     },
     start(rounds) {
       this.gameActive = true;
-      this.quests = getRandomQuests(this.rounds);
+      this.quests = getQuests(this.rounds);
 
     },
 

@@ -28,13 +28,13 @@
   <div id="app">
     <div id="game-start" v-if="!gameActive">
       <h1 class="game-name">Это<br>Пиво.</h1>
-      <h2 class="game-message">сколько раундов?</h2>
-      <form class="settings">
+      <h2 class="game-message">Угадаешь пиво?</h2>
+      <<form class="settings">
         <div class="settings__minus">
           <img @click="change(-1)" src="img/minus.svg" alt="">
         </div>
         <div class="settings__count">
-          <input type="number" :value="rounds" max="{{rounds}}">
+          <input type="number" :value="rounds">
         </div>
         <div class="settings__plus">
           <img @click="change(1)" src="img/plus.svg" alt="">
