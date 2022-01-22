@@ -4,7 +4,7 @@ $(document).mouseup(function (e){
             && div.has(e.target).length === 0) {
             if ($('.main-nav').attr('data-status') == 1) {
             $('.main-nav').animate({
-                left: "-400"
+                left: "-600"
             }, 500, function() {
                 $('.main-nav').attr('data-status', 0)
             });
@@ -25,8 +25,22 @@ $(document).mouseup(function (e){
             }
         }
     });
-$(document).ready(function () {
 
+var i = 0;
+var txt = 'avalon'; /* Текст */
+var speed = 50; /* Скорость/длительность эффекта в миллисекундах */
+
+function typeWriter() {
+    if (i < txt.length) {
+        document.getElementById("username-js").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+
+$(document).ready(function () {
+    //typeWriter();
     $('form').submit(function(e) {
         var $form = $(this);
         $modal = $(this).parent('.modal-inner').parent('.modal');
